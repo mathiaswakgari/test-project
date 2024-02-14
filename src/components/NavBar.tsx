@@ -1,6 +1,6 @@
 import React from "react";
 import { IoAdd } from "react-icons/io5";
-import { Box, Button, Heading, Flex } from "rebass";
+import { Box, Button, Text, Flex } from "rebass";
 
 const NavBar = () => {
   return (
@@ -12,7 +12,9 @@ const NavBar = () => {
       height={"50px"}
     >
       <Flex justifyContent={"space-between"} alignItems={"center"}>
-        <Heading>All Songs</Heading>
+        <Text fontSize={"20px"} fontWeight={"bold"}>
+          All Songs
+        </Text>
         <Button
           bg={"gray"}
           css={{
