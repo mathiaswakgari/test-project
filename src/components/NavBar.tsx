@@ -1,6 +1,5 @@
-import React from "react";
-import { IoAdd } from "react-icons/io5";
-import { Box, Button, Text, Flex } from "rebass";
+import { Box, Text, Flex } from "rebass";
+import AddButton from "./AddButton";
 
 const NavBar = () => {
   return (
@@ -15,20 +14,7 @@ const NavBar = () => {
         <Text fontSize={"20px"} fontWeight={"bold"}>
           All Songs
         </Text>
-        <Button
-          bg={"gray"}
-          css={{
-            borderRadius: "10px",
-            color: "white",
-            ":hover": {
-              scale: "1.1",
-              transitionDuration: "400ms",
-            },
-            cursor: "pointer",
-          }}
-        >
-          <IoAdd fontSize={"20px"} />
-        </Button>
+        <AddButton />
       </Flex>
     </Box>
   );
