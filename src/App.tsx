@@ -1,13 +1,22 @@
 import React from "react";
 import { Box, Flex } from "rebass";
 import NavBar from "./components/NavBar";
+import SongCard from "./components/SongCard";
 
 const App = () => {
   return (
-    <Flex justifyContent={"center"}>
-      <Box width={"70%"}>
+    <Flex
+      justifyContent={"center"}
+      alignItems={"center"}
+      flexDirection={"column"}
+    >
+      <Flex flexDirection={"column"} alignItems={"center"} width={"70%"}>
         <NavBar />
-      </Box>
+        <SongCard />
+        <SongCard />
+        <SongCard />
+        <SongCard />
+      </Flex>
     </Flex>
   );
 };
