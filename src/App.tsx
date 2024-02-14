@@ -5,6 +5,7 @@ import SongCard from "./components/SongCard";
 import { useSelector } from "react-redux";
 import { RootState } from "./state/store";
 import Song from "./models/song";
+import SongForm from "./components/SongForm";
 
 const App = () => {
   const songs = useSelector((state: RootState) => state.songs.songs);
@@ -13,7 +14,9 @@ const App = () => {
     <Flex
       alignItems={"center"}
       flexDirection={"column"}
-      backgroundColor={"#f2f2f2"}
+      css={{
+        backgroundImage: "linear-gradient(50deg, #34c0eb, #0fa38e)",
+      }}
       height={"100vh"}
       fontFamily={"Montserrat"}
     >
@@ -23,6 +26,7 @@ const App = () => {
           <SongCard key={song.albumTitle} />
         ))}
       </Flex>
+      <SongForm />
     </Flex>
   );
 };
