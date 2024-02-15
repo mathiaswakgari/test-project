@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button, Flex, Image, Text } from "rebass";
-import Song from "../models/song";
+import { Song } from "../models/song";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { MdModeEdit } from "react-icons/md";
 import { useDispatch } from "react-redux";
@@ -13,6 +13,7 @@ interface Props {
 
 const SongCard = ({ song }: Props) => {
   const dispatch = useDispatch();
+
   return (
     <Box
       width={"90%"}
@@ -39,10 +40,14 @@ const SongCard = ({ song }: Props) => {
             flexDirection={"column"}
             justifyContent={"space-around"}
           >
-            <Text lineHeight={1} overflow={"hidden"} fontSize={"20px"}>
-              {song.title}
-            </Text>
-            <Text color={"white"}>{song.albumTitle}</Text>
+            <Box height={"25px"} overflow={"hidden"}>
+              <Text width={"400px"} fontSize={"18px"}>
+                {song.title}
+              </Text>
+            </Box>
+            <Box>
+              <Text color={"#f4f4f4"}>Album Title</Text>
+            </Box>
           </Box>
         </Flex>
         <Box

@@ -1,11 +1,19 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../state/store";
 import { Flex } from "rebass";
 import NavBar from "../components/NavBar";
 import SongsList from "../components/SongsList";
+import { getSongs } from "../state/songs/songsSlice";
+import { useEffect } from "react";
 
 const SongsPage = () => {
+  const dispatch = useDispatch();
   const songs = useSelector((state: RootState) => state.songs.songs);
+
+  useEffect(() => {
+    dispatch(getSongs());
+  }, []);
+
   return (
     <Flex
       flexDirection={"column"}

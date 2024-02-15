@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Button, Flex, Text } from "rebass";
-import Song from "../models/song";
+import { Song } from "../models/song";
 import { add, edit } from "../state/songs/songsSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import Input from "./Input";

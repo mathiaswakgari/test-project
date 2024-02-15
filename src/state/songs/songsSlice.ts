@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import Song from "../../models/song";
+import { Song } from "../../models/song";
 
 interface SongsState {
   songs: Array<Song>;
@@ -25,9 +25,13 @@ const songsSlice = createSlice({
         song.id == action.payload.id ? action.payload : song
       );
     },
+    getSongs: () => {},
+    setSongs: (state, action: PayloadAction<Array<Song>>) => {
+      state.songs = action.payload;
+    },
   },
 });
 
-export const { remove, add, edit } = songsSlice.actions;
+export const { remove, add, edit, getSongs, setSongs } = songsSlice.actions;
 
 export default songsSlice.reducer;

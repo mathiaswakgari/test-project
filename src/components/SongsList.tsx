@@ -1,5 +1,5 @@
 import { Flex } from "rebass";
-import Song from "../models/song";
+import { Song } from "../models/song";
 import SongCard from "./SongCard";
 interface Props {
   songs: Array<Song>;
