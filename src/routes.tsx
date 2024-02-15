@@ -10,7 +10,8 @@ const router = createBrowserRouter([
 
     children: [
       { index: true, element: <SongsPage /> },
-      { path: "songs/add", element: <SongForm /> },
+      { path: "songs/add", element: <SongForm isUpdate={false} /> },
+      { path: "songs/edit/:id", element: <SongForm isUpdate={true} /> },
     ],
   },
 ]);

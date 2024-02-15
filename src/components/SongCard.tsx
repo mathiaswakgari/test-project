@@ -5,6 +5,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { MdModeEdit } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { remove } from "../state/songs/songsSlice";
+import { Link } from "react-router-dom";
 
 interface Props {
   song: Song;
@@ -63,18 +64,20 @@ const SongCard = ({ song }: Props) => {
           >
             <FaRegTrashAlt />
           </Button>
-          <Button
-            css={{
-              cursor: "pointer",
-              ":hover": {
-                scale: "1.03",
-                transitionDuration: "200ms",
-              },
-            }}
-            backgroundColor={"#065ddf"}
-          >
-            <MdModeEdit />
-          </Button>
+          <Link to={`songs/edit/${song.id}`}>
+            <Button
+              css={{
+                cursor: "pointer",
+                ":hover": {
+                  scale: "1.03",
+                  transitionDuration: "200ms",
+                },
+              }}
+              backgroundColor={"#065ddf"}
+            >
+              <MdModeEdit />
+            </Button>
+          </Link>
         </Box>
       </Flex>
     </Box>

@@ -4,7 +4,7 @@ import { Box } from "rebass";
 
 interface Props {
   label: string;
-  placeholder: string;
+  placeholder?: string;
   ref: React.RefObject<HTMLInputElement>;
 }
 

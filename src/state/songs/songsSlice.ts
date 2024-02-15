@@ -20,9 +20,14 @@ const songsSlice = createSlice({
       const songs = state.songs.filter((song) => song.id !== action.payload.id);
       state.songs = songs;
     },
+    edit: (state, action: PayloadAction<Song>) => {
+      state.songs = state.songs.map((song) =>
+        song.id == action.payload.id ? action.payload : song
+      );
+    },
   },
 });
 
-export const { remove, add } = songsSlice.actions;
+export const { remove, add, edit } = songsSlice.actions;
 
 export default songsSlice.reducer;
