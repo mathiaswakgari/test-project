@@ -6,6 +6,7 @@ import Song from "../models/song";
 import { add } from "../state/songs/songsSlice";
 import { useNavigate } from "react-router-dom";
 import Input from "./Input";
+import ShadowBox from "./ShadowBox";
 
 const SongForm = () => {
   const titleRef = useRef<HTMLInputElement>(null);
@@ -29,20 +30,7 @@ const SongForm = () => {
   };
 
   return (
-    <Flex
-      flexDirection={"column"}
-      minHeight={"220px"}
-      width={"400px"}
-      paddingX={4}
-      bg={"white"}
-      justifyContent={"space-evenly"}
-      alignItems={"center"}
-      css={{
-        boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-        border: "none",
-        borderRadius: "5px",
-      }}
-    >
+    <ShadowBox>
       <Box marginY={4}>
         <Text fontSize="21px">Add Song</Text>
       </Box>
@@ -105,7 +93,7 @@ const SongForm = () => {
           </Button>
         </Flex>
       </form>
-    </Flex>
+    </ShadowBox>
   );
 };
 
