@@ -1,7 +1,12 @@
 import React from "react";
 import { Box, Flex, Image, Text } from "rebass";
+import Song from "../models/song";
 
-const SongCard = () => {
+interface Props {
+  song: Song;
+}
+
+const SongCard = ({ song }: Props) => {
   return (
     <Box
       width={"90%"}
@@ -13,13 +18,18 @@ const SongCard = () => {
       }}
     >
       <Flex marginX={2} width={"100%"} height={"90%"} alignItems={"center"}>
-        <Image
-          width={"50px"}
-          src="https://upload.wikimedia.org/wikipedia/en/e/ea/Anomaly_%28Lecrae_album%29.jpeg"
-        />
-        <Box marginLeft={3} height={"100%"}>
-          <Text fontSize={"22px"}>Song title</Text>
-          <Text color={"gray"}>Album title </Text>
+        <Image width={"50px"} src={song.thumbnailUrl} />
+        <Box
+          marginLeft={3}
+          height={"100%"}
+          display={"flex"}
+          flexDirection={"column"}
+          justifyContent={"space-around"}
+        >
+          <Text lineHeight={1} overflow={"hidden"} fontSize={"20px"}>
+            {song.title}
+          </Text>
+          <Text color={"white"}>{song.albumTitle}</Text>
         </Box>
       </Flex>
     </Box>

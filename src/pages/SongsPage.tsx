@@ -11,7 +11,7 @@ const SongsPage = () => {
     <Flex flexDirection={"column"} alignItems={"center"} width={"70%"}>
       <NavBar />
       {songs.map((song: Song) => (
-        <SongCard key={song.albumTitle} />
+        <SongCard song={song} key={song.albumTitle} />
       ))}
     </Flex>
   );
