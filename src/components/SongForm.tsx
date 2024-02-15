@@ -5,6 +5,7 @@ import { Box, Button, Flex, Text } from "rebass";
 import Song from "../models/song";
 import { add } from "../state/songs/songsSlice";
 import { useNavigate } from "react-router-dom";
+import Input from "./Input";
 
 const SongForm = () => {
   const titleRef = useRef<HTMLInputElement>(null);
@@ -51,69 +52,27 @@ const SongForm = () => {
         `}
         onSubmit={handleSubmit}
       >
-        <Box width={"100%"} flexDirection={"column"} display={"flex"}>
-          <label
-            className={css`
-              padding-bottom: 10px;
-              font-size: 13px;
-            `}
-          >
-            Song Title
-          </label>
-          <input
-            className={css`
-              height: 35px;
-              border: 1px solid gray;
-              margin-bottom: 10px;
-              &:placeholder {
-                color: white;
-              }
-            `}
-            ref={titleRef}
-            type="text"
-            placeholder="Song title..."
-          />
-        </Box>
-        <Box width={"100%"} flexDirection={"column"} display={"flex"}>
-          <label
-            className={css`
-              padding-bottom: 10px;
-              font-size: 13px;
-            `}
-          >
-            Album
-          </label>
-          <input
-            className={css`
-              height: 35px;
-              border: 1px solid gray;
-              margin-bottom: 10px;
-            `}
-            ref={albumRef}
-            type="text"
-            placeholder="Album name..."
-          />
-        </Box>
-        <Box width={"100%"} flexDirection={"column"} display={"flex"}>
-          <label
-            className={css`
-              padding-bottom: 10px;
-              font-size: 13px;
-            `}
-          >
-            Album Thumbnail Link
-          </label>
-          <input
-            className={css`
-              height: 35px;
-              border: 1px solid gray;
-              margin-bottom: 10px;
-            `}
-            ref={thumbnailRef}
-            type="text"
-            placeholder="Thumbnail link..."
-          />
-        </Box>
+        <Input
+          props={{
+            ref: titleRef,
+            label: "Song Title",
+            placeholder: "Song title...",
+          }}
+        />
+        <Input
+          props={{
+            ref: albumRef,
+            label: "Album",
+            placeholder: "Album name...",
+          }}
+        />
+        <Input
+          props={{
+            ref: thumbnailRef,
+            label: "Album Thumbnail Link",
+            placeholder: "Thumbnail link...",
+          }}
+        />
         <Flex marginBottom={4} justifyContent={"space-evenly"} width={"100%"}>
           <Button
             css={{
