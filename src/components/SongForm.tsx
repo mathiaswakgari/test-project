@@ -1,12 +1,13 @@
 import { css } from "@emotion/css";
 import React, { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Box, Button, Flex, Text } from "rebass";
 import Song from "../models/song";
 import { add } from "../state/songs/songsSlice";
 import { useNavigate } from "react-router-dom";
 import Input from "./Input";
 import ShadowBox from "./ShadowBox";
+import { RootState } from "../state/store";
 
 const SongForm = () => {
   const titleRef = useRef<HTMLInputElement>(null);
@@ -15,12 +16,17 @@ const SongForm = () => {
 
   const song = {} as Song;
 
+  const songsLength = useSelector(
+    (state: RootState) => state.songs.songs
+  ).length;
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    song.id = songsLength + 1;
     song.albumTitle = albumRef.current?.value;
     song.thumbnailUrl = thumbnailRef.current?.value;
     song.title = titleRef.current?.value;
