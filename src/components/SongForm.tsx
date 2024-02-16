@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Box, Button, Flex, Text } from "rebass";
 import Input from "./Input";
 import ShadowBox from "./ShadowBox";
-import { RootState } from "../state/store";
+import { RootState } from "../redux/store";
 import { CREATE_SONG, EDIT_SONG } from "../redux/types";
 import { setSongSlice } from "../state/song/songSlice";
 

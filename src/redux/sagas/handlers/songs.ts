@@ -1,5 +1,9 @@
 import { call, put } from "redux-saga/effects";
-import { add, remove, setSongs } from "../../../state/songs/songsSlice";
+import {
+  setSongsSlice,
+  addSongSlice,
+  removeSongSlice,
+} from "../../../state/songs/songsSlice";
 import {
   requestAddSong,
   requestGetSongs,
@@ -14,7 +18,7 @@ export function* handleGetSongs() {
     console.log("Executing....");
     const response: AxiosResponse = yield call(requestGetSongs); // requestGetSongs
     const { data } = response;
-    yield put(setSongs(data));
+    yield put(setSongsSlice(data));
   } catch (error) {
     console.log(error);
   }
@@ -26,7 +30,7 @@ export function* handleAddSong(action: PayloadAction<Song>) {
     console.log(action.payload);
     const response: AxiosResponse = yield call(requestAddSong, action.payload);
     const { data } = response;
-    yield put(add(data));
+    yield put(addSongSlice(data));
   } catch (error) {
     console.log(error);
   }
@@ -40,7 +44,7 @@ export function* handleDeleteSong(action: PayloadAction<Song>) {
       action.payload
     );
     const { data } = response;
-    yield put(remove(data));
+    yield put(removeSongSlice(data));
   } catch (error) {
     console.log(error);
   }

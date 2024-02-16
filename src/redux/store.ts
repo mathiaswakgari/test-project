@@ -1,8 +1,8 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import songsReducer from "./songs/songsSlice";
+import { configureStore } from "@reduxjs/toolkit";
+import songsReducer from "../state/songs/songsSlice";
 import createSagaMiddleware from "@redux-saga/core";
-import rootSaga from "../redux/sagas/root-saga";
-import songReducer from "./song/songSlice";
+import rootSaga from "./sagas/root-saga";
+import songReducer from "../state/song/songSlice";
 
 const sagaMiddleware = createSagaMiddleware();
 

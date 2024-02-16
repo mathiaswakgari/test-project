@@ -15,6 +15,7 @@ import { AxiosResponse } from "axios";
 import { requestGetSong } from "./requests/song";
 import { setSongSlice } from "../../state/song/songSlice";
 import {
+  Action,
   CREATE_SONG,
   DELETE_SONG,
   EDIT_SONG,
@@ -27,23 +28,23 @@ export function* getSongsSaga() {
   yield put(getSongsSlice(songs.data.slice(0, 5)));
 }
 
-export function* getSongSaga(action) {
-  yield requestGetSong(action.song);
+export function* getSongSaga(action: Action) {
+  yield requestGetSong(action.song.id!);
   yield put(setSongSlice(action.song));
 }
 
-export function* createSongSaga(action) {
+export function* createSongSaga(action: Action) {
   yield put(addSongSlice(action.song));
-  const resp: AxiosResponse = yield requestAddSong(action.song);
+  yield requestAddSong(action.song);
 }
 
-export function* updateSongSaga(action) {
+export function* updateSongSaga(action: Action) {
   console.log("editing", action.song);
   yield put(editSongSlice(action.song));
   yield requestEditSong(action.song);
 }
 
-export function* deleteSongSaga(action) {
+export function* deleteSongSaga(action: Action) {
   yield put(removeSongSlice(action.song));
   yield requestRemoveSong(action.song);
 }

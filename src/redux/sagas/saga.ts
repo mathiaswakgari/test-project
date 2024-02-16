@@ -1,6 +1,10 @@
 import { takeLatest } from "redux-saga/effects";
 
-import { add, getSongs, remove } from "../../state/songs/songsSlice";
+import {
+  addSongSlice,
+  getSongsSlice,
+  removeSongSlice,
+} from "../../state/songs/songsSlice";
 import {
   handleAddSong,
   handleDeleteSong,
@@ -8,11 +12,11 @@ import {
 } from "./handlers/songs";
 
 export function* watchGetSongs() {
-  yield takeLatest(getSongs.type, handleGetSongs); //import from handler
+  yield takeLatest(getSongsSlice.type, handleGetSongs); //import from handler
 }
 export function* watchAddSong() {
-  yield takeLatest(add.type, handleAddSong);
+  yield takeLatest(addSongSlice.type, handleAddSong);
 }
 export function* watchRemoveSong() {
-  yield takeLatest(remove.type, handleDeleteSong);
+  yield takeLatest(removeSongSlice.type, handleDeleteSong);
 }

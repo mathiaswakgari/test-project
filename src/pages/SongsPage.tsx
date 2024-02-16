@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../state/store";
+import { RootState } from "../redux/store";
 import { Flex } from "rebass";
 
 import SongsList from "../components/SongsList";

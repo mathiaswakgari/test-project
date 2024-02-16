@@ -34,10 +34,19 @@ const songsSlice = createSlice({
       state.songs = action.payload;
       return state;
     },
+    setSongsSlice: (state, action: PayloadAction<Array<Song>>) => {
+      state.songs = action.payload;
+      return state;
+    },
   },
 });
 
-export const { removeSongSlice, addSongSlice, editSongSlice, getSongsSlice } =
-  songsSlice.actions;
+export const {
+  setSongsSlice,
+  removeSongSlice,
+  addSongSlice,
+  editSongSlice,
+  getSongsSlice,
+} = songsSlice.actions;
 
 export default songsSlice.reducer;

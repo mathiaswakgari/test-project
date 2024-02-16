@@ -1,5 +1,5 @@
 import { Flex } from "rebass";
-import { Outlet } from "react-router-dom";
+import SongsPage from "./pages/SongsPage";
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
       height={"100vh"}
       fontFamily={"Open Sans"}
     >
-      <Outlet />
+      <SongsPage />
     </Flex>
   );
 };
