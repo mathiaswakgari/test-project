@@ -1,4 +1,4 @@
-import { Flex } from "rebass";
+import { Flex, Text } from "rebass";
 import { Song } from "../models/song";
 import SongCard from "./SongCard";
 interface Props {
@@ -15,9 +15,13 @@ const SongsList = ({ songs }: Props) => {
       overflowY={"scroll"}
       marginTop={2}
     >
-      {songs.map((song: Song) => (
-        <SongCard song={song} key={song.id} />
-      ))}
+      {songs.length === 0 ? (
+        <Flex justifyContent={"center"} alignItems={"center"} height={"100%"}>
+          <Text>Empty Collection. Add Song</Text>
+        </Flex>
+      ) : (
+        songs.map((song: Song) => <SongCard song={song} key={song.id} />)
+      )}
     </Flex>
   );
 };
