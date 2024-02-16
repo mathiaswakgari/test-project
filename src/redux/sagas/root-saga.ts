@@ -1,8 +1,8 @@
-import { fork, all } from "redux-saga/effects";
-import { watchGetSongs } from "./saga";
+import { all } from "redux-saga/effects";
+import { watchSongsAsync } from "./song";
 
 const rootSaga = function* () {
-  yield all([fork(watchGetSongs)]);
+  yield all([watchSongsAsync()]);
 };
 
 export default rootSaga;

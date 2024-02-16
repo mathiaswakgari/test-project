@@ -1,11 +1,10 @@
-import React from "react";
 import { Box, Button, Flex, Image, Text } from "rebass";
 import { Song } from "../models/song";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { MdModeEdit } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import { remove } from "../state/songs/songsSlice";
-import { Link } from "react-router-dom";
+import { DELETE_SONG, EDIT_SONG } from "../redux/types";
+import { setSongSlice } from "../state/song/songSlice";
 
 interface Props {
   song: Song;
@@ -58,7 +57,7 @@ const SongCard = ({ song }: Props) => {
         >
           <Button
             backgroundColor={"red"}
-            onClick={() => dispatch(remove(song))}
+            onClick={() => dispatch({ type: DELETE_SONG, song: song })}
             css={{
               cursor: "pointer",
               ":hover": {
@@ -69,20 +68,21 @@ const SongCard = ({ song }: Props) => {
           >
             <FaRegTrashAlt />
           </Button>
-          <Link to={`songs/edit/${song.id}`}>
-            <Button
-              css={{
-                cursor: "pointer",
-                ":hover": {
-                  scale: "1.03",
-                  transitionDuration: "200ms",
-                },
-              }}
-              backgroundColor={"#065ddf"}
-            >
-              <MdModeEdit />
-            </Button>
-          </Link>
+          <Button
+            onClick={() => {
+              return dispatch(setSongSlice(song));
+            }}
+            css={{
+              cursor: "pointer",
+              ":hover": {
+                scale: "1.03",
+                transitionDuration: "200ms",
+              },
+            }}
+            backgroundColor={"#065ddf"}
+          >
+            <MdModeEdit />
+          </Button>
         </Box>
       </Flex>
     </Box>
