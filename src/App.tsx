@@ -10,7 +10,7 @@ const App = () => {
         backgroundImage: "linear-gradient(50deg, #34c0eb, #0fa38e)",
       }}
       height={"100vh"}
-      fontFamily={"Montserrat"}
+      fontFamily={"Open Sans"}
     >
       <Outlet />
     </Flex>
