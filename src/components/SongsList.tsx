@@ -9,7 +9,7 @@ const SongsList = ({ songs }: Props) => {
   return (
     <Flex
       width={"100%"}
-      height={"100%"}
+      height={"1000px"}
       flexDirection={"column"}
       alignItems={"center"}
       overflowY={"scroll"}

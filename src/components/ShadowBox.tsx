@@ -9,17 +9,11 @@ const ShadowBox = ({ children }: Props) => {
   return (
     <Flex
       flexDirection={"column"}
-      minHeight={"220px"}
-      width={"400px"}
+      maxHeight={"350px"}
+      width={[1, 1 / 1.5, 1 / 1.5, 1]}
       paddingX={4}
-      bg={"white"}
       justifyContent={"space-evenly"}
       alignItems={"center"}
-      css={{
-        boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-        border: "none",
-        borderRadius: "5px",
-      }}
     >
       {children}
     </Flex>

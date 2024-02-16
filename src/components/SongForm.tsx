@@ -99,21 +99,6 @@ const SongForm = () => {
         />
         <Flex marginBottom={4} justifyContent={"space-evenly"} width={"100%"}>
           <Button
-            css={{
-              cursor: "pointer",
-              ":hover": {
-                scale: "1.05",
-              },
-              transitionDuration: "100ms",
-            }}
-            backgroundColor="#8c8c8c"
-            marginTop={2}
-            width={"130px"}
-            onClick={() => {}}
-          >
-            Cancel
-          </Button>
-          <Button
             marginTop={2}
             width={"130px"}
             css={{
