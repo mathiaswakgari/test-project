@@ -22,7 +22,8 @@ const Input: React.FC<{ props: Props }> = (props) => {
       <input
         className={css`
           height: 35px;
-          border: 1px solid gray;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
           margin-bottom: 10px;
           &:placeholder {
             color: white;
