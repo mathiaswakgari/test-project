@@ -1,27 +1,25 @@
 import axios from "axios";
 import { Song } from "../../../models/song";
 
+export const url = "https://jsonplaceholder.typicode.com/photos";
+
+export const requestGetSong = async (id: number) => axios.get(`${url}/${id}`);
+
 export function requestGetSongs() {
-  return axios.request({
-    method: "GET",
-    url: "https://jsonplaceholder.typicode.com/photos",
-  });
+  return axios.get(url);
 }
 
 export function requestAddSong(song: Song) {
-  return axios.post("https://jsonplaceholder.typicode.com/photos", {
+  return axios.post(url, {
     title: song.title,
     thumbnailUrl: song.thumbnailUrl,
   });
 }
 
 export async function requestRemoveSong(song: Song) {
-  return axios.delete(`https://jsonplaceholder.typicode.com/photos/${song.id}`);
+  return axios.delete(`${url}/${song.id}`);
 }
 
 export async function requestEditSong(song: Song) {
-  return axios.put(
-    `https://jsonplaceholder.typicode.com/photos/${song.id}`,
-    song
-  );
+  return axios.put(`${url}/${song.id}`, song);
 }

@@ -12,7 +12,7 @@ import {
   removeSongSlice,
 } from "../../state/songs/songsSlice";
 import { AxiosResponse } from "axios";
-import { requestGetSong } from "./requests/song";
+import { requestGetSong } from "./requests/songs";
 import { setSongSlice } from "../../state/song/songSlice";
 import {
   Action,
@@ -39,7 +39,6 @@ export function* createSongSaga(action: Action) {
 }
 
 export function* updateSongSaga(action: Action) {
-  console.log("editing", action.song);
   yield put(editSongSlice(action.song));
   yield requestEditSong(action.song);
 }
